@@ -2,12 +2,13 @@ import pygame, sys
 from botoes import botao
 
 pygame.init()
-
+# definindo tela e o nome do jogo
 tela = pygame.display.set_mode((1280, 720))
 pygame.display.set_caption("Get The B(ob)urger")
 
 fundo = pygame.image.load("Fundos/Background.png")
 
+# função que retorna uma fonte de escrita a ser utilizada:
 def get_font(size):
     return pygame.font.Font("MenuAssets/font.ttf", size)
 

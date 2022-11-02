@@ -4,7 +4,7 @@ import BobGroup
 import PontuacaoContagem
 
 # determinando a sprite do plankton:
-class Plancton(pygame.sprite.Sprite):
+class Plancton_2(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.sprites = []
@@ -13,10 +13,10 @@ class Plancton(pygame.sprite.Sprite):
         self.image = self.sprites[self.atual]
         self.image = pygame.transform.scale(self.image, (40.3, 71.5))
         self.rect = self.image.get_rect()
-        self.x_planc = randint(65,980)
-        self.y_planc = randint(20,580)
-        self.change_position = 1.5
-        self.rect.topleft = self.x_planc,self.y_planc
+        self.x_planc = randint(65, 980)
+        self.y_planc = randint(20, 580)
+        self.change_position = 2
+        self.rect.topleft = self.x_planc, self.y_planc
         self.colidiu = False
         self.ida_horizontal = True
         self.ida_vertical = False
@@ -50,13 +50,13 @@ class Plancton(pygame.sprite.Sprite):
     # verifica a condição do plankton e chama as funções anteriores, de mudar de direção, quando necessário:
     def posicao(self):
         if self.ida_horizontal:
-            Plancton.direita(BobGroup.plancton)
+            Plancton_2.direita(BobGroup.plancton2)
         else:
-            Plancton.esquerda(BobGroup.plancton)
+            Plancton_2.esquerda(BobGroup.plancton2)
         if self.ida_vertical:
-            Plancton.subindo(BobGroup.plancton)
+            Plancton_2.subindo(BobGroup.plancton2)
         else:
-            Plancton.descendo(BobGroup.plancton)
+            Plancton_2.descendo(BobGroup.plancton2)
         self.rect.topleft = self.x_planc, self.y_planc
 
     # atualizando sprite
