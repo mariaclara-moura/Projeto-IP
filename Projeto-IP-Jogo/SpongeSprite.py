@@ -1,3 +1,4 @@
+#realizando as importações necessárias
 import pygame
 from pygame.locals import *
 

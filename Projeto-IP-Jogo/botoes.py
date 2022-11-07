@@ -1,8 +1,6 @@
 
-
+# criando os botoes dos menus
 class botao():
-
-
     def __init__(self, image, pos, text_input, font, base_color, hovering_color):
         self.image = image
         self.x_pos = pos[0]
@@ -26,6 +24,7 @@ class botao():
             return True
         return False
 
+# mudando de cor quando o mouse passa por cima do botão
     def changeColor(self, position):
         if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
             self.text = self.font.render(self.text_input, True, self.hovering_color)
