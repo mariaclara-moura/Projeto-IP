@@ -1,4 +1,3 @@
-#realizando as importações necessárias
 import pygame
 from random import randint
 import BobGroup
@@ -9,7 +8,8 @@ class Plancton(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.sprites = []
-        self.sprites.append(pygame.image.load('sprites/plancton.png'))
+        for i in range(12):
+            self.sprites.append(pygame.image.load(f'sprites/inimigo_1/{i}.png'))
         self.atual = 0
         self.image = self.sprites[self.atual]
         self.image = pygame.transform.scale(self.image, (40.3, 71.5))
@@ -60,8 +60,13 @@ class Plancton(pygame.sprite.Sprite):
             Plancton.descendo(BobGroup.personagens.plancton)
         self.rect.topleft = self.x_planc, self.y_planc
 
-    # atualizando sprite e computando colisão
+    # atualizando sprite
     def update(self):
+        self.atual += 0.05
+        if self.atual >= len(self.sprites):
+            self.atual = 0
+        self.image = self.sprites[int(self.atual)]
+        self.image = pygame.transform.scale(self.image, (40, 60))
         # perdendo 1 vida quando o Bob colide com o plankton
         if self.rect.colliderect(BobGroup.personagens.bob.rect) and (self.colidiu == False):
             print('Vida perdida!')
